@@ -1,0 +1,140 @@
+<!-- Single button -->
+<div ng-controller="DemoTabCtrl">
+  <section id="basic">
+    <h2 style="font-size:16px;">Basic.</h2>
+    <div class="commands">
+      <button navtabs-model="tabs" navtabs-scroll-begin>|&lt;</button>
+      <button navtabs-model="tabs" navtabs-scroll-preview>&lt;&lt;</button>
+      <button navtabs-model="tabs" navtabs-preview>&lt;</button>
+      <button navtabs-model="tabs" navtabs-next>&gt;</button>
+      <button navtabs-model="tabs" navtabs-scroll-next>&gt;&gt;</button>
+      <button navtabs-model="tabs" navtabs-scroll-end>&gt;|</button>
+      <button ng-click="addTab()">+</button>
+      <select navtabs-model="tabs" navtabs-show-at>
+        <option ng-selected="{true:'selected',false:''}[tab.active]" ng-repeat="tab in tabs">{{tab.title}}</option>
+      </select>
+      <div class="dropdown">
+        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+          <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          <li ng-class="{true:'selected',false:''}[tab.active]" ng-repeat="tab in tabs">
+            <a href="#basic-{{$index}}" ng-class="{true:'active',false:''}[tab.active]" navtabs-show>{{tab.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-tabs-wrapper">
+      <ul class="nav nav-tabs" navtabs-model="tabs" navtabs-scrollable>
+        <li ng-class="{true:'active',false:''}[tab.active]" ng-repeat="tab in tabs">
+          <a title="{{tab.title}}" href="#basic-{{$index}}" navtabs-show>
+            <span class="glyphicon glyphicon-remove" navtabs-remove></span>
+            <span>{{tab.title}}</span>
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="basic-{{$index}}" class="tab-pane" ng-class="{true:'active',false:''}[tab.active]" ng-repeat="tab in tabs">
+          <p>{{tab.content}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="likeapp">
+    <h2 style="font-size:16px;">Like a App.</h2>
+    <div class="nav-tabs-wrapper">
+      <ul class="nav nav-tabs west-side">
+        <li style="font-size:24px;line-height:14px;">
+          <span style="color:red;">●</span>
+          <span style="color:orange;">●</span>
+          <span style="color:green;">●</span>
+        </li>
+        <li>
+          <a href="javascript:void(0);" navtabs-model="tabs" navtabs-scroll-preview>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav nav-tabs center-side" navtabs-model="tabs" navtabs-scrollable>
+        <li ng-class="{true:'active',false:''}[tab.active]" ng-repeat="tab in tabs">
+          <a title="{{tab.title}}" href="#likeapp-{{$index}}" navtabs-show>
+            <span class="glyphicon glyphicon-remove" navtabs-remove></span>
+            <span class="ellipsis">{{tab.title}}</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav nav-tabs east-side">
+        <li>
+          <a href="javascript:void(0);" navtabs-model="tabs" navtabs-scroll-next>
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" ng-click="addTab()">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+        </li>
+        <li class="navbar-right">
+          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-th-list"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li ng-class="{true:'selected',false:''}[tab.active]" ng-repeat="tab in tabs">
+              <a href="#likeapp-{{$index}}" navtabs-show>{{tab.title}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="likeapp-{{$index}}" class="tab-pane" ng-class="{true:'active',false:''}[tab.active]" ng-repeat="tab in tabs">
+          <p>{{tab.content}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="justified">
+    <h2 style="font-size:16px;">Basic justified.</h2>
+    <ul class="nav nav-tabs nav-justified">
+      <li class="active">
+        <a href="#justified-1">Home</a>
+      </li>
+      <li>
+        <a href="#justified-2">Profile</a>
+      </li>
+      <li>
+        <a href="#justified-3">Messages</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="justified-1" class="tab-pane active">
+        <p>Home</p>
+      </div>
+      <div id="justified-2" class="tab-pane">
+        <p>Profile</p>
+      </div>
+      <div id="justified-3" class="tab-pane">
+        <p>Messages</p>
+      </div>
+    </div>
+  </section>
+  <!--
+  <section id="likeaosx">
+    <h2 style="font-size:16px;">Like a OSX.</h2>
+    <div class="nav-tabs-wrapper">
+      <ul class="nav nav-tabs nav-justified" navtabs-model="tabs" navtabs-scrollable>
+        <li ng-class="{true:'active',false:''}[tab.active]" ng-repeat="tab in tabs">
+          <a title="{{tab.title}}" href="#likeaosx-{{$index}}" navtabs-show>
+            <span class="glyphicon glyphicon-remove" navtabs-remove></span>
+            <span>{{tab.title}}</span>
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="likeaosx-{{$index}}" class="tab-pane" ng-class="{true:'active',false:''}[tab.active]" ng-repeat="tab in tabs">
+          <p>{{tab.content}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+</div>
